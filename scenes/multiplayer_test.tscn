@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/multiplayer_test.gd" type="Script" id=1]
+[ext_resource path="res://scenes/player_scene.tscn" type="PackedScene" id=2]
+
+[node name="multiplayer_test" type="Node2D"]
+script = ExtResource( 1 )
+player_scene = ExtResource( 2 )
+
+[node name="host" type="Button" parent="."]
+margin_top = 264.0
+margin_right = 40.0
+margin_bottom = 284.0
+text = "host"
+
+[node name="join" type="Button" parent="."]
+margin_top = 328.0
+margin_right = 36.0
+margin_bottom = 348.0
+text = "join"
+
+[connection signal="pressed" from="host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="join" to="." method="_on_join_pressed"]

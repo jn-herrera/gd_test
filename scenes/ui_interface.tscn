@@ -14,59 +14,66 @@ anchor_bottom = 1.0
 texture = ExtResource( 1 )
 expand = true
 
-[node name="VBoxContainer" type="HBoxContainer" parent="."]
-anchor_right = 1.0
-margin_top = 13.0
-margin_bottom = 66.0
-custom_constants/separation = 50
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -113.0
+margin_top = 21.0
+margin_right = 114.0
+margin_bottom = 41.0
+rect_min_size = Vector2( 10, 0 )
 alignment = 1
 
-[node name="btn_play" type="Button" parent="VBoxContainer"]
-margin_left = 245.0
-margin_right = 266.0
-margin_bottom = 53.0
-text = "A"
+[node name="btn_play" type="Button" parent="HBoxContainer"]
+margin_right = 38.0
+margin_bottom = 20.0
+text = "play"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
-margin_left = 316.0
-margin_right = 337.0
-margin_bottom = 53.0
+[node name="btn_opt1" type="Button" parent="HBoxContainer"]
+margin_left = 42.0
+margin_right = 63.0
+margin_bottom = 20.0
 text = "B"
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
-margin_left = 387.0
-margin_right = 407.0
-margin_bottom = 53.0
+[node name="Button3" type="Button" parent="HBoxContainer"]
+margin_left = 67.0
+margin_right = 87.0
+margin_bottom = 20.0
 text = "C"
 
-[node name="Button4" type="Button" parent="VBoxContainer"]
-margin_left = 457.0
-margin_right = 479.0
-margin_bottom = 53.0
+[node name="Button4" type="Button" parent="HBoxContainer"]
+margin_left = 91.0
+margin_right = 113.0
+margin_bottom = 20.0
 text = "D"
 
-[node name="Button5" type="Button" parent="VBoxContainer"]
-margin_left = 529.0
-margin_right = 548.0
-margin_bottom = 53.0
+[node name="Button5" type="Button" parent="HBoxContainer"]
+margin_left = 117.0
+margin_right = 136.0
+margin_bottom = 20.0
 text = "E"
 
-[node name="Button6" type="Button" parent="VBoxContainer"]
-margin_left = 598.0
-margin_right = 617.0
-margin_bottom = 53.0
+[node name="Button6" type="Button" parent="HBoxContainer"]
+margin_left = 140.0
+margin_right = 159.0
+margin_bottom = 20.0
 text = "F"
 
-[node name="Button7" type="Button" parent="VBoxContainer"]
-margin_left = 667.0
-margin_right = 689.0
-margin_bottom = 53.0
+[node name="Button7" type="Button" parent="HBoxContainer"]
+margin_left = 163.0
+margin_right = 185.0
+margin_bottom = 20.0
 text = "G"
 
-[node name="btn_salir" type="Button" parent="VBoxContainer"]
-margin_left = 739.0
-margin_right = 778.0
-margin_bottom = 53.0
+[node name="btn_salir" type="Button" parent="HBoxContainer"]
+margin_left = 189.0
+margin_right = 228.0
+margin_bottom = 20.0
 text = "EXIT"
 
-[connection signal="toggled" from="VBoxContainer/btn_play" to="." method="_on_Button_toggled"]
+[node name="edit" type="Button" parent="HBoxContainer"]
+margin_left = 232.0
+margin_right = 244.0
+margin_bottom = 20.0
+
+[connection signal="toggled" from="HBoxContainer/btn_play" to="." method="_on_Button_toggled"]

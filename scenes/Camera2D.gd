@@ -15,7 +15,6 @@ func _physics_process(delta):
 		_update_screen( parent_screen )
 
 
-func _update_screen(new_screen: Vector2):
+func _update_screen( new_screen : Vector2 ):
 	cur_screen = new_screen
-	position = cur_screen * SCREEN_SIZE + SCREEN_SIZE * 0.5
-
+	global_position = cur_screen * SCREEN_SIZE + SCREEN_SIZE * 0.5

@@ -1,5 +1,7 @@
 extends Control
 
+
+onready var scene_volver_menu := "res://scenes/ui_interface.gd"
 onready var button := $VBoxContainer/Button
 onready var texturerect := $VBoxContainer/TextureRect
 

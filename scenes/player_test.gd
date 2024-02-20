@@ -1,4 +1,4 @@
-extends KinematicBody2D  # Hereda las características de un cuerpo cinemático en 2D.
+extends KinematicBody2D
 
 # Velocidad de movimiento constante en píxeles por segundo.
 const MOTION_SPEED = 300
@@ -24,8 +24,6 @@ func _physics_process(_delta):
 	move_and_slide(motion)
 
 
-
-
-
-func _on_Area2D_area_entered(area):
-	pass # Replace with function body.
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("enemies"):
+		body.anim.play("attack"):

@@ -72,7 +72,7 @@ radius = 27.2947
 [sub_resource type="Animation" id=21]
 resource_name = "walk"
 
-[node name="Enemy" type="KinematicBody2D" groups=["enemies"]]
+[node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -86,13 +86,16 @@ shape = SubResource( 14 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
 animation = "walk"
+frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Area2D2" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+visible = false
 shape = SubResource( 16 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

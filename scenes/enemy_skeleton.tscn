@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://img/enemy/Walk.png" type="Texture" id=2]
 [ext_resource path="res://scenes/enemy_skeleton.gd" type="Script" id=3]
@@ -7,7 +7,7 @@
 radius = 27.0185
 
 [sub_resource type="CircleShape2D" id=14]
-radius = 259.048
+radius = 320.506
 
 [sub_resource type="AtlasTexture" id=1]
 region = Rect2( 0, 0, 150, 150 )
@@ -66,13 +66,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=16]
-radius = 27.2947
-
 [sub_resource type="Animation" id=21]
 resource_name = "walk"
 
-[node name="Enemy" type="KinematicBody2D" groups=["enemy"]]
+[node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -86,21 +83,12 @@ shape = SubResource( 14 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
 animation = "walk"
-frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Area2D2" type="Area2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-visible = false
-shape = SubResource( 16 )
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/walk = SubResource( 21 )
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

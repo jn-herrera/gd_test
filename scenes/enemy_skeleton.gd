@@ -27,8 +27,6 @@ func _on_Area2D_body_entered(body):
 
 # Método que se llama cuando un cuerpo sale del área.
 func _on_Area2D_body_exited(body):
-	# Verificamos si el cuerpo que salió es el jugador.
-	if body.is_in_group("player"):  # Comprobamos si el cuerpo pertenece al grupo "player".
-		player = null  # Desasignamos al jugador.
-
+	if body.is_in_group("player"):
+		player = null
 

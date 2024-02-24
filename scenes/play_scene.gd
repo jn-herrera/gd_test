@@ -1,27 +1,31 @@
-extends Area2D
+extends KinematicBody2D  # Hereda las características de un cuerpo cinemático en 2D.
+
+# Velocidad de movimiento constante en píxeles por segundo.
+const MOTION_SPEED = 300
+
+func _physics_process(_delta):
+	# Método que se ejecuta en cada frame para manejar la física del cuerpo.
+	
+	# Inicializa un vector para almacenar el movimiento.
+	var motion = Vector2()
+	
+	# Calcula el movimiento en el eje X y el eje Y basado en las entradas de teclado.
+	motion.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	motion.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
+	
+	# Divide el movimiento en el eje Y por 2 para ajustar la velocidad diagonal.
+	motion.y /= 2
+	
+	# Normaliza el vector de movimiento y luego lo escala por la velocidad predeterminada.
+	motion = motion.normalized() * MOTION_SPEED
+	
+	# Aplica el movimiento y detección de colisiones.
+	# El valor devuelto de move_and_slide() se ignora intencionalmente porque no se usa en este caso.
+	move_and_slide(motion)
 
 
-var max_speed := 1200.0
-var velocity := Vector2(0, 0)
-var steering_factor := 3.0
 
 
-func _process(delta: float) -> void:
-	var direction := Vector2(0, 0)
-	direction.x = Input.get_axis("move_left", "move_right")
-	direction.y = Input.get_axis("move_up", "move_down")
 
-	if direction.length() > 1.0:
-		direction = direction.normalized()
-
-	var desired_velocity := max_speed * direction
-	var steering := desired_velocity - velocity
-	velocity += steering * steering_factor * delta
-#ANCHOR: position_and_rotation
-	position += velocity * delta
-
-	if velocity.length() > 0.0:
-#ANCHOR: rotation_only
-		get_node("Sprite").rotation = velocity.angle()
-#END: rotation_only
-#END: position_and_rotation
+func _on_Area2D_area_entered(area):
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://img/enemy/Walk.png" type="Texture" id=2]
 [ext_resource path="res://scenes/enemy_skeleton.gd" type="Script" id=3]
@@ -69,6 +69,13 @@ animations = [ {
 [sub_resource type="Animation" id=21]
 resource_name = "walk"
 
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.164706, 0.823529, 0.392157, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="Enemy" type="KinematicBody2D"]
 script = ExtResource( 3 )
 
@@ -83,12 +90,26 @@ shape = SubResource( 14 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 13 )
 animation = "walk"
+frame = 2
 playing = true
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/walk = SubResource( 21 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+margin_left = -39.0
+margin_top = -41.0
+margin_right = 44.0
+margin_bottom = -33.0
+custom_styles/fg = SubResource( 22 )
+value = 50.0
+percent_visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

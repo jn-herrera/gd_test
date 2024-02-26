@@ -1,9 +1,15 @@
 extends KinematicBody2D
 
+
 # Declaramos variables y las inicializamos con valores predeterminados.
 var player = null  # Variable para almacenar la referencia al jugador.
 var move = Vector2.ZERO  # Vector de movimiento inicializado en (0, 0).
 var speed = 110  # Velocidad predeterminada del movimiento.
+var health := 100
+var attack := 10
+var player_script = null
+
+
 
 # Método que se ejecuta en cada frame para manejar la física del cuerpo.
 func _physics_process(_delta):
@@ -22,9 +28,11 @@ func _physics_process(_delta):
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
 		player = body
+		# f_attack(player)
 	elif body.is_in_group("coin"):
 		# Si es una moneda, no hacemos nada
 		pass
+	
 		
 # Método que se llama cuando un cuerpo sale del área.
 func _on_Area2D_body_exited(body):
@@ -32,4 +40,8 @@ func _on_Area2D_body_exited(body):
 	if body.is_in_group("player"):  # Comprobamos si el cuerpo pertenece al grupo "player".
 		player = null  # Desasignamos al jugador.
 
-
+# func f_attack(body):
+# 	player_script.healtah = player_script.health - attack
+	
+	
+	
